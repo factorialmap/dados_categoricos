@@ -11,9 +11,9 @@
 - Preciso lidar com dados categóricos mas não entendo de programação e nem softwares estatísticos
 
 ### Neste material você vai ver:
-- Alteração de nomes e tipos de dados categóricos com fct_recode
-- Alterações em multiplas variáveis categóricas simultaneamente com efeito loop usando mutate e across
-- Alteração de categóricas definidas com codições usando ifelse (similiar ao comanto SE do excel)
+- Alteração de valores e tipos de dados com a função fct_recode
+- Alteração de multiplas variáveis simultaneamente com efeito loop usando as funções mutate e across
+- Alteração de valores de variáveis através usando codição através da função ifelse (similiar ao comanto SE do excel)
 - Extração de partes de texto usando funções como str_extract e str_replace_all
 - Recodificação de níveis usando função fct_collapse e fct_other
 - Redução de níveis (e.g. valor "outros" para variáveis com pouca frequência) usando função fct_lump
