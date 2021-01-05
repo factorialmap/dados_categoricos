@@ -82,3 +82,5 @@ titanic_train <-
 titanic_train %>% 
   filter(str_detect(name, "Mrs.")) %>% 
   summarise(Mr = n())
+
+titanic_train %>% slice_sample(n=10)
