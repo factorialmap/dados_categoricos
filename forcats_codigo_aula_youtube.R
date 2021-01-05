@@ -2,12 +2,9 @@
 library(tidyverse)
 
 #2. dados              ----
-titanic_train <- 
-  read_csv("C:/Users/microsoft/Documents/Models/titanic/train.csv") %>%
-  janitor::clean_names() 
+titanic_train <-  read_csv("train.csv") %>% janitor::clean_names() 
 
-titanic_train %>% 
-  slice_sample(n=10)
+titanic_train %>% slice_sample(n=10)
 
 #3. objetivos          ----
 # Transformar variavel resposta (survived) para categorica com sim ou nao  
@@ -37,10 +34,10 @@ titanic_train <-
   mutate(woman = as.factor(ifelse(sex == "female" & age >14, "sim","nao"))) %>% 
   mutate(child = as.factor(ifelse(age <=14, "sim","nao")))
 
-# Criar variavel conves categorica
+# criar variavel convez extraindo a primeira letra e se for na transforma pra U
 titanic_train <-
   titanic_train %>% 
-  mutate(conves  = as.factor(str_extract(cabin, pattern = "^.")))
+  mutate(conves  = as.factor(ifelse(is.na(cabin),"U",str_extract(cabin, pattern = "^."))))
 
 # criando uma feature com titulo do nome
 titanic_train <- 
@@ -57,7 +54,6 @@ table(titanic_train$title)
 
 titanic_train %>% 
   head()
-
 
 titanic_train <-
   titanic_train %>% 
@@ -81,8 +77,6 @@ titanic_train <-
                                between(age, 13,18) ~ "teen",
                                between(age, 19,50)~ "adult",
                                age> 50 ~ "old"))
-
-
 
 # Selecionaod dadoS categoricos
 titanic_train %>% 
